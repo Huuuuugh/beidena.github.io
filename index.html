@@ -7,39 +7,201 @@
     <title>倍得纳蜂蜜产品介绍</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         header {
-            background-color: #333;
+            background-color: #4CAF50;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 50px 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: bold;
         }
 
         main {
-            padding: 20px;
-            max-width: 800px;
+            padding: 30px;
+            max-width: 1200px;
             margin: 0 auto;
             background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: -30px;
         }
 
         h2 {
-            color: #333;
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
         }
 
-        .product-image {
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-item {
+            width: 280px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-item img {
             max-width: 100%;
             height: auto;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .product-item h3 {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            margin: 10px 0;
+        }
+
+        .product-item p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
         }
 
         .product-description {
-            line-height: 1.6;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .usage-method ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .usage-method li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .usage-method li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-size: 1.2rem;
+        }
+
+        .award-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .award-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .award-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .award-image {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .award-image:hover {
+            transform: scale(1.1);
+        }
+
+        .beekeeper-story {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .beekeeper-story img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .beekeeper-story p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-section {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+            color: #4CAF50;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .faq-item p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .faq-item.active p {
+            display: block;
         }
     </style>
 </head>
@@ -49,19 +211,90 @@
         <h1>倍得纳蜂蜜产品</h1>
     </header>
     <main>
-        <img class="product-image" src="https://dummyimage.com/800x600/ff9900/ffffff&text=Beidena+Honey"
-            alt="倍得纳蜂蜜产品图片">
+        <h2>产品展示</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="https://bkimg.cdn.bcebos.com/pic/359b033b5bb5c9eade45b303d239b6003bf3b398?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_511"
+                    alt="倍得纳百花蜜">
+                <h3>百花蜜</h3>
+                <p>汇聚多种花蜜，口感层次丰富，营养全面，是蜂蜜中的珍品。</p>
+            </div>
+            <div class="product-item">
+                <img src="https://gimg3.baidu.com/topone/src=https%3A%2F%2Fbkimg.cdn.bcebos.com%2Fsmart%2F4034970a304e251f84e84d5fad86c9177f3e537d-bkimg-process%2Cv_1%2Crw_1%2Crh_1%2Cmaxl_300%2Cpad_1%3Fx-bce-process%3Dimage%2Fformat%2Cf_auto%26x-bce-process%3Dimage%2Fresize%2Cm_pad%2Cw_348%2Ch_348%2Ccolor_ffffff&refer=http%3A%2F%2Fwww.baidu.com&app=2011&size=w931&n=0&g=0n&er=404&q=75&fmt=auto&maxorilen2heic=2000000?sec=1742835600&t=e769a287b26c1a7c1f22dd5d185b68bc"
+                    alt="倍得纳洋槐蜜">
+                <h3>洋槐蜜</h3>
+                <p>色泽晶莹剔透，带有清新淡雅的槐花香，口感清甜不腻。</p>
+            </div>
+            <div class="product-item">
+                <img src="https://img2.baidu.com/it/u=90357083,3773274826&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
+                    alt="倍得纳椴树蜜">
+                <h3>椴树蜜</h3>
+                <p>呈浅琥珀色，质地浓稠，具有独特的椴树花香，味道醇厚。</p>
+            </div>
+            <div class="product-item">
+                <img src="http://t15.baidu.com/it/u=1896671793,3940841769&fm=224&app=112&f=JPEG?w=500&h=500"
+                    alt="倍得纳紫云英蜜">
+                <h3>紫云英蜜</h3>
+                <p>具有自然清新的香气，滋味甜而不腻，富含氨基酸和维生素。</p>
+            </div>
+        </div>
+
         <h2>产品介绍</h2>
-        <p class="product-description">倍得纳蜂蜜，源自纯净自然的蜂场。我们精心挑选优质的蜜源，确保每一滴蜂蜜都蕴含着大自然的精华。这些蜂蜜采集自无污染的森林和花海，蜜蜂在那里自由地穿梭，酿造出天然、美味、营养丰富的蜂蜜。</p>
-        <p class="product-description">倍得纳蜂蜜具有多种功效，它不仅可以为您带来甜蜜的口感，还能滋润肌肤、增强免疫力、改善睡眠质量。无论是直接食用，还是搭配面包、水果，亦或是冲泡成蜂蜜水，都是绝佳的选择。</p>
+        <p class="product-description">倍得纳蜂蜜，源自远离喧嚣与污染的纯净蜂场。我们的养蜂人遵循自然规律，让蜜蜂在无污染的森林和广袤花海中自由采集花蜜。每一滴蜂蜜都历经蜜蜂精心酿造，饱含着大自然的馈赠和时光的沉淀，是真正天然、美味且营养丰富的甜蜜结晶。</p>
+
         <h2>产品特点</h2>
-        <ul>
-            <li>天然纯正：不添加任何人工香料、色素和防腐剂。</li>
-            <li>营养丰富：富含多种维生素、矿物质和氨基酸。</li>
-            <li>口感醇厚：具有独特的花香和甜味，回味无穷。</li>
+        <ul class="usage-method">
+            <li>天然纯正：从源头到成品，无任何人工香料、色素和防腐剂的添加。</li>
+            <li>营养丰富：富含多种维生素、矿物质以及氨基酸，为您的健康提供全面滋养。</li>
+            <li>口感醇厚：依据不同蜜源，呈现出各具特色的花香和浓郁甜味。</li>
+            <li>品质溯源：每一瓶倍得纳蜂蜜都拥有专属的溯源码，全程品质监控。</li>
         </ul>
+
+        <div class="award-section">
+            <h2>荣誉奖项</h2>
+            <div class="award-images">
+                <img class="award-image" src="https://img1.baidu.com/it/u=705839149,2567340614&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=708"
+                    alt="有机产品认证">
+                <img class="award-image" src="https://img2.baidu.com/it/u=2982219678,2855150971&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=629"
+                    alt="年度优质蜂蜜奖">
+                <img class="award-image" src="https://img0.baidu.com/it/u=3508521257,3717334660&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=715"
+                    alt="消费者最喜爱品牌">
+            </div>
+            <p>倍得纳蜂蜜凭借卓越品质，荣获多项行业权威奖项，深受消费者信赖。</p>
+        </div>
+
+        <div class="beekeeper-story">
+            <h2>养蜂人的故事</h2>
+            <img src="https://img2.baidu.com/it/u=3160200100,2163125631&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500"
+                alt="养蜂人">
+            <p>我们的养蜂人，世代传承养蜂技艺，对蜜蜂充满热爱与敬畏。他们常年驻守在风景秀丽的蜂场，悉心照料每一群蜜蜂。每一瓶倍得纳蜂蜜，都凝聚着养蜂人的心血与汗水。</p>
+        </div>
+
+        <div class="faq-section">
+            <h2>常见问题解答</h2>
+            <div class="faq-item">
+                <h3>蜂蜜结晶是坏了吗？</h3>
+                <p>蜂蜜结晶是一种自然现象，并非变质。这是因为蜂蜜中的葡萄糖在低温环境下会逐渐析出形成结晶。</p>
+            </div>
+            <div class="faq-item">
+                <h3>小孩子可以吃蜂蜜吗？</h3>
+                <p>一岁以下的婴儿不建议食用蜂蜜，因为蜂蜜中可能含有肉毒杆菌芽孢。</p>
+            </div>
+            <div class="faq-item">
+                <h3>蜂蜜应该如何保存？</h3>
+                <p>蜂蜜应密封保存在阴凉、干燥、通风的地方，避免阳光直射和高温环境。</p>
+            </div>
+        </div>
     </main>
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item h3');
+        faqItems.forEach((faqItem) => {
+            faqItem.addEventListener('click', () => {
+                const answer = faqItem.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
 
 </html>
-    
